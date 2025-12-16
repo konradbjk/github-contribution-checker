@@ -1,0 +1,23 @@
+[project]
+name = "github-stats"
+version = "0.1.0"
+description = "CLI and helper to fetch GitHub contribution statistics"
+readme = "README.md"
+requires-python = ">=3.13"
+keywords = ["github", "contributions", "cli"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.13",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Topic :: Internet :: WWW/HTTP",
+    "Topic :: Utilities",
+]
+dependencies = [
+    "httpx>=0.28.1",
+    "beautifulsoup4>=4.12.3",
+    "lxml>=5.3.0",
+]
+
+[project.scripts]
+github-stats = "fetch_contributions:main"
