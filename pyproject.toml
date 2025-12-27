@@ -4,6 +4,7 @@ version = "0.1.0"
 description = "CLI and helper to fetch GitHub contribution statistics"
 readme = "README.md"
 requires-python = ">=3.13"
+authors = [{ name = "Konrad Bujak", email = "konradbjk" }]
 keywords = ["github", "contributions", "cli"]
 classifiers = [
     "Programming Language :: Python :: 3",
