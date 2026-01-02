@@ -6,8 +6,8 @@ This document summarizes everything an agent needs to know to work effectively i
 
 - Purpose: fetch and inspect GitHub contribution calendars using GitHub’s public contribution endpoint.
 - Key entry points:
-  - `fetch_contributions.py`: core fetching/parsing logic (imported by other tools).
-  - `selectors.py`: shared range-resolution helpers (ISO dates, timestamps, rolling/yearly spans).
+  - `github_stats/fetch.py`: core fetching/parsing logic (imported by other tools).
+  - `github_stats/selectors.py`: shared range-resolution helpers (ISO dates, timestamps, rolling/yearly spans).
   - `cli.py`: primary CLI (`python cli.py <username|url>` / installed as `github-stats`).
   - `find_commit_days.py`: helper CLI that lists days matching specific commit counts (defaults: 8, 9, 10).
   - `usage.py`: demonstrates library usage (handy for sanity checks).
@@ -15,7 +15,7 @@ This document summarizes everything an agent needs to know to work effectively i
 ## Runtime & Tooling
 
 - Python 3.13 is the target/runtime. Avoid legacy compatibility shims (`__future__`, typing backports, etc).
-- Dependencies (see `pyproject.toml` / `uv.lock`): `httpx`, `beautifulsoup4`, `lxml`.
+- Dependencies (see `pyproject.toml` / `uv.lock`): in example `httpx`, `beautifulsoup4`, `lxml`.
 - Linting: Ruff configured via `ruff.toml` (120-char lines, rule set `E W F I N UP`).
 - No tests yet; lightweight validation is usually done by executing the CLIs against a public profile.
 
@@ -50,7 +50,7 @@ Both CLIs accept plain usernames or profile URLs; `fetch_github_stats` auto-dete
 
 ## Common Tasks
 
-- **Fetch stats programmatically:** import `fetch_contributions.fetch_github_stats`.
+- **Fetch stats programmatically:** import `github_stats.fetch.fetch_github_stats`.
 - **Regenerate CLI summary:** `python cli.py <profile>`.
 - **Search for specific contribution counts:** `python find_commit_days.py <profile> --counts ...`.
 - **Keep docs in sync:** update `README.md` when new flags/scripts are introduced.
